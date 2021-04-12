@@ -22,7 +22,7 @@ jobs:
           name: Build multiarch docker image and push
           command: |
             docker build -t namiops/arm-netcat .
-            docker push namiops/arm-netcat .
+            docker push namiops/arm-netcat
 workflows:
   version: 2
   build-and-deploy:
