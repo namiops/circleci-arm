@@ -1,11 +1,15 @@
-FROM debian:buster-slim
+FROM golang
 
 LABEL maintainer="Nami Ops <namiops@gmail.com>"
+ 
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
+ 
+# Golang build and output binary server file
+RUN go build -o server .
+ 
+# Run the server executable
+CMD [ "/app/server" ]
 
-ENV PORT=1234
-
-RUN apt update && apt install -y netcat
-
-CMD nc -lv $PORT
-
-EXPOSE $PORT
+EXPOSE 5050

@@ -21,8 +21,8 @@ jobs:
       - run:
           name: Build multiarch docker image and push
           command: |
-            docker build -t namiops/arm-netcat .
-            docker push namiops/arm-netcat
+            docker build -t namiops/golang-arm64 .
+            docker push namiops/golang-arm64
 workflows:
   version: 2
   build-and-deploy:
